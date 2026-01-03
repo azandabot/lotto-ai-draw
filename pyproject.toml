@@ -1,0 +1,80 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "sa-lotto-ai"
+version = "1.0.0"
+description = "SA Lotto AI Predictor - Predict South African lottery numbers using AI and statistics"
+readme = "README.md"
+license = {text = "MIT"}
+authors = [
+    {name = "Judah Zama", email = "judah.zama@gmail.com"}
+]
+keywords = ["lottery", "lotto", "prediction", "south-africa", "ai", "statistics"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Environment :: Console",
+    "Intended Audience :: End Users/Desktop",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Games/Entertainment",
+]
+requires-python = ">=3.10"
+dependencies = [
+    "openai>=1.0.0",
+    "click>=8.0.0",
+    "httpx>=0.27.0",
+    "python-dotenv>=1.0.0",
+    "rich>=13.0.0",
+    "beautifulsoup4>=4.12.0",
+    "pydantic>=2.0.0",
+    "numpy>=1.24.0",
+    "scipy>=1.10.0",
+    "InquirerPy>=0.3.4",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.4.0",
+    "pytest-cov>=4.1.0",
+    "pytest-asyncio>=0.21.0",
+]
+
+[project.urls]
+Homepage = "https://github.com/azandabot/lotto-ai-draw"
+Repository = "https://github.com/azandabot/lotto-ai-draw"
+Issues = "https://github.com/azandabot/lotto-ai-draw/issues"
+
+[project.scripts]
+lotto = "main:main"
+
+[tool.setuptools]
+py-modules = [
+    "main",
+    "ui",
+    "config",
+    "models",
+    "storage",
+    "fetcher",
+    "predictor",
+    "analyzer",
+    "ticket_generator",
+    "play_tracker",
+    "backtest",
+    "logging_config",
+]
+
+[tool.setuptools.package-data]
+"*" = ["*.json"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = ["test_*.py"]
+python_classes = ["Test*"]
+python_functions = ["test_*"]
+addopts = "-v --tb=short"
